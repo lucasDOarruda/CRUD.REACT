@@ -201,12 +201,6 @@ select {
 /**
  * Correct the inability to style clickable types in iOS and Safari.
  */
-button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
-  -webkit-appearance: button;
-}
 
 /**
  * Remove the inner border and padding in Firefox.
@@ -294,13 +288,7 @@ textarea {
 /**
  * 1. Correct the odd appearance in Chrome and Safari.
  * 2. Correct the outline style in Safari.
- */
-[type='search'] {
-  -webkit-appearance: textfield;
-  /* 1 */
-  outline-offset: -2px;
-  /* 2 */
-}
+
 
 /**
  * Remove the inner padding in Chrome and Safari on macOS.
@@ -779,7 +767,7 @@ dd {
  * Buttons
  */
 .button, a.button, button, [type=submit], [type=reset], [type=button] {
-  -webkit-appearance: none;
+ 
   display: inline-block;
   border: 1px solid #0366ee;
   border-radius: 4px;
@@ -910,10 +898,7 @@ legend {
 
 select {
   color: #404040;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAJCAYAAAA/33wPAAAAvklEQVQoFY2QMQqEMBBFv7ERa/EMXkGw11K8QbDXzuN4BHv7QO6ifUgj7v4UAdlVM8Uwf+b9YZJISnlqrfEUZVlinucnBGKaJgghbiHOyLyFKIoCbdvecpyReYvo/Ma2bajrGtbaC58kCdZ1RZ7nl/4/4d5EsO/7nzl7IUtodBexMMagaRrs+06JLMvcNWmaOv2W/C/TMAyD58dxROgSmvxFFMdxoOs6lliWBXEcuzokXRbRoJRyvqqqQvye+QDMDz1D6yuj9wAAAABJRU5ErkJggg==) right center no-repeat;
-  line-height: 1;
+  
 }
 
 select::-ms-expand {
