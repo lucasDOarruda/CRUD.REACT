@@ -1,0 +1,1 @@
+<UserTable users={users} deleteUser={deleteUser} />

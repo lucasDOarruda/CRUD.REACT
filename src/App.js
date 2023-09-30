@@ -19,6 +19,13 @@ const App = () => {
     setUsers([...users, user])
   }
 
+  const deleteUser = (id) => {
+    setUsers(users.filter((user) => user.id !== id))
+  }
+
+
+
+
   return (
     <div className="container">
       <h1>CRUD App with Hooks</h1>
