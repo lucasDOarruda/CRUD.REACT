@@ -1,16 +1,13 @@
 {
   "files": {
-    "main.css": "/CRUD.REACT/static/css/main.073c9b0a.css",
-    "main.js": "/CRUD.REACT/static/js/main.6e5b8b87.js",
-    "static/js/787.f2e22480.chunk.js": "/CRUD.REACT/static/js/787.f2e22480.chunk.js",
-    "static/media/logo.svg": "/CRUD.REACT/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "main.css": "/CRUD.REACT/static/css/main.b10ce008.css",
+    "main.js": "/CRUD.REACT/static/js/main.ec7f77e3.js",
     "index.html": "/CRUD.REACT/index.html",
-    "main.073c9b0a.css.map": "/CRUD.REACT/static/css/main.073c9b0a.css.map",
-    "main.6e5b8b87.js.map": "/CRUD.REACT/static/js/main.6e5b8b87.js.map",
-    "787.f2e22480.chunk.js.map": "/CRUD.REACT/static/js/787.f2e22480.chunk.js.map"
+    "main.b10ce008.css.map": "/CRUD.REACT/static/css/main.b10ce008.css.map",
+    "main.ec7f77e3.js.map": "/CRUD.REACT/static/js/main.ec7f77e3.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.6e5b8b87.js"
+    "static/css/main.b10ce008.css",
+    "static/js/main.ec7f77e3.js"
   ]
 }
