@@ -2,6 +2,10 @@
 import React from 'react';
 import './Home.css'; // Import the CSS file for Home
 
+
+
+
+
 function Home({ items }) {
   const calculateStockLevel = () => {
     // Calculate stock level based on the value of SKU (you can implement your logic here)

@@ -37,24 +37,29 @@ button:hover {
 
 /* Style the table */
 table {
+  align-items: center;
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+  table-layout: fixed;
 }
 
 th, td {
   border: 1px solid #ccc;
   padding: 8px;
   text-align: left;
+  word-wrap: break-word; /* Wrap long content */
+  white-space: normal; /* Allow text to wrap */
 }
 
 th {
   background-color: #f2f2f2;
+  text-align: center; /* Center align header text */
 }
 
 /* Style table actions buttons */
 table button {
-  background-color: transparent;
+  background-color: gray;
   border: none;
   cursor: pointer;
 }
@@ -62,4 +67,10 @@ table button {
 table button:hover {
   text-decoration: underline;
   color: #007bff;
+}
+
+
+.hometbaleview {
+
+
 }

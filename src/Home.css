@@ -1,0 +1,33 @@
+/* Home.css */
+.home-container {
+    padding: 20px;
+  }
+  
+  .stock-widget {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .item-table {
+    align-items: center;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .item-table th,
+  .item-table td {
+    align-content: center;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .item-table th {
+    background-color: #f2f2f2;
+  }
+  
