@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 import AddItem from './AddItem';
 import EditItem from './EditItem';
 import Home from './Home';
+import './TopMenuBar.css'; // Import the CSS file for Home
+
 
 function App() {
   // Initialize the items state with some dummy data
@@ -22,7 +24,7 @@ function App() {
     <Router>
       <div>
         <nav>
-          <ul>
+          <ul className='topmanubar'>
             <li>
               <Link to="/">Home</Link>
             </li>

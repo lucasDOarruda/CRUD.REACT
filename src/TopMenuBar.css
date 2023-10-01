@@ -1,0 +1,44 @@
+/* Navbar.css */
+.topmanubar {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: #0078d4; /* Microsoft Blue */
+    display: flex;
+    justify-content: space-around; /* Add space around items */
+    align-items: center; /* Center items vertically */
+  }
+  
+  .topmanubar li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .topmanubar li a {
+    text-decoration: none;
+    color: #fff; /* White text color */
+    padding: 15px 20px;
+    display: block;
+    transition: background-color 0.3s;
+  }
+  
+  .topmanubar li a:hover {
+    background-color: #005a9e; /* Darker blue on hover */
+  }
+  
+  /* Optional: Add some spacing between navbar items */
+  .topmanubar li + li {
+    margin-left: 10px;
+  }
+  
+  /* Optional: Style the active link */
+  .topmanubar li a.active {
+    background-color: #005a9e; /* Darker blue for active link */
+  }
+  
+  /* Optional: Add some spacing to the right of the last navbar item */
+  .topmanubar li:last-child {
+    margin-right: 20px;
+  }
+  
