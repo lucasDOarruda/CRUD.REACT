@@ -24,7 +24,7 @@ function EditItem({ items, onEdit, onDelete }) {
 
   return (
     <div>
-      <h2>Edit Item Page</h2>
+      <h2>Inventory</h2>
       <table>
         <thead>
           <tr>
