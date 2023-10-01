@@ -45,6 +45,7 @@ table {
 }
 
 th, td {
+  text-align: center;
   border: 1px solid #ccc;
   padding: 8px;
   text-align: left;
@@ -70,7 +71,10 @@ table button:hover {
 }
 
 
-.hometbaleview {
 
-
+.divmainadditem {
+  max-width: 800px; /* Adjust the maximum width as needed */
+  margin: 0 auto; /* Center the div horizontally */
+  padding: 20px; /* Add padding for spacing */
+  box-sizing: border-box; /* Include padding in the width calculation */
 }

@@ -22,7 +22,7 @@ function App() {
 
   return (
     <Router>
-      <div>
+      <div className='sizemaindiv'>
         <nav>
           <ul className='topmanubar'>
             <li>

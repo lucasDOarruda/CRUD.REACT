@@ -1,5 +1,8 @@
 /* Home.css */
+
+
 .home-container {
+    text-align: center;
     padding: 20px;
   }
   
@@ -13,6 +16,7 @@
   }
   
   .item-table {
+   
     align-items: center;
     width: 100%;
     border-collapse: collapse;
@@ -21,6 +25,7 @@
   
   .item-table th,
   .item-table td {
+   
     align-content: center;
     border: 1px solid #ddd;
     padding: 8px;
@@ -28,6 +33,7 @@
   }
   
   .item-table th {
+    text-align: center;
     background-color: #f2f2f2;
   }
   

@@ -5,7 +5,7 @@
     margin: 0;
     background-color: #0078d4; /* Microsoft Blue */
     display: flex;
-    justify-content: space-around; /* Add space around items */
+    justify-content: space-evenly; /* Add space around items */
     align-items: center; /* Center items vertically */
   }
   
@@ -40,5 +40,14 @@
   /* Optional: Add some spacing to the right of the last navbar item */
   .topmanubar li:last-child {
     margin-right: 20px;
+  }
+  
+
+
+  .sizemaindiv {
+    max-width: 800px; /* Adjust the maximum width as needed */
+    margin: 0 auto; /* Center the div horizontally */
+    padding: 20px; /* Add padding for spacing */
+    box-sizing: border-box; /* Include padding in the width calculation */
   }
   
