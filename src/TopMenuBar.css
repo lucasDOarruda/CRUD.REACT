@@ -45,7 +45,7 @@
 
 
   .sizemaindiv {
-    background: rgb(2,0,36);
+    background: rgba(2, 0, 36, 0.142);
 background: -moz-linear-gradient(0deg, rgba(2,0,36,1) 2%, rgba(0,212,255,1) 100%);
 background: -webkit-linear-gradient(0deg, rgba(2,0,36,1) 2%, rgba(0,212,255,1) 100%);
 background: linear-gradient(0deg, rgba(2,0,36,1) 2%, rgba(0,212,255,1) 100%);
