@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import './index.css'; // Import the CSS file
+
 import { writeFileSync } from 'xlsx';
 import * as XLSX from 'xlsx'; // Import the XLSX object using the * as XLSX syntax
+
+import { RiFileExcel2Line } from 'react-icons/ri'; // Import the Excel icon
 
 const OrderEntry = () => {
   // Initialize state to manage order entries
@@ -80,7 +83,7 @@ const OrderEntry = () => {
 
   return (
     <div>
-      <h2>Order Entry</h2>
+      <h2 className='orderentrytittle'>Order Entry</h2>
       <div className='datafieldentry'>
         <input
           type="text"
@@ -112,8 +115,11 @@ const OrderEntry = () => {
           value={newEntry.deliveryDate}
           onChange={(e) => setNewEntry({ ...newEntry, deliveryDate: e.target.value })}
         />
-        <button onClick={addOrderEntry}>Add</button>
-        <button onClick={exportToExcel}>Export to Excel</button>
+         <button className='buttonorderentry' onClick={addOrderEntry}>Add</button>
+      <button className='buttonorderentry' onClick={exportToExcel}>
+        <RiFileExcel2Line /> Export
+      </button>
+
       </div>
 
       <table>

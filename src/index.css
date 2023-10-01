@@ -132,3 +132,15 @@ table button:hover {
   border: none;
   cursor: pointer;
 }
+
+.buttonorderentry {
+  display: flex;
+justify-content: space-evenly;
+  width: 10%;
+}
+
+
+.orderentrytittle{
+  text-align: center;
+  color: #484848;
+}

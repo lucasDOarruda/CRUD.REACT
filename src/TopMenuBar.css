@@ -3,7 +3,7 @@
     list-style-type: none;
     padding: 0;
     margin: 0;
-    background-color: #03030443; /* Microsoft Blue */
+    background-color: #d4d4db38; /* Microsoft Blue */
     display: flex;
     justify-content: space-evenly; /* Add space around items */
     align-items: center; /* Center items vertically */
