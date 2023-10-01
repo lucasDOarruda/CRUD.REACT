@@ -1,24 +1,27 @@
-// OrderEntry.js
 import React, { useState } from 'react';
 import './index.css'; // Import the CSS file
+import { writeFileSync } from 'xlsx';
+import * as XLSX from 'xlsx'; // Import the XLSX object using the * as XLSX syntax
 
 const OrderEntry = () => {
   // Initialize state to manage order entries
   const [orderEntries, setOrderEntries] = useState([]);
   const [newEntry, setNewEntry] = useState({
     sku: '',
+    description: '',
     qty: '',
-    shippingAddress: '',
-    requestedDeliveryDate: '',
+    price: '',
+    deliveryDate: '',
   });
 
   // Function to add a new order entry
   const addOrderEntry = () => {
     if (
       newEntry.sku.trim() === '' ||
+      newEntry.description.trim() === '' ||
       newEntry.qty.trim() === '' ||
-      newEntry.shippingAddress.trim() === '' ||
-      newEntry.requestedDeliveryDate.trim() === ''
+      newEntry.price.trim() === '' ||
+      newEntry.deliveryDate.trim() === ''
     ) {
       // Ensure all fields are filled out before adding
       return;
@@ -27,9 +30,10 @@ const OrderEntry = () => {
     // Clear the input fields
     setNewEntry({
       sku: '',
+      description: '',
       qty: '',
-      shippingAddress: '',
-      requestedDeliveryDate: '',
+      price: '',
+      deliveryDate: '',
     });
   };
 
@@ -45,10 +49,39 @@ const OrderEntry = () => {
     setOrderEntries(updatedOrderEntries);
   };
 
+  // Function to export order entries to Excel
+  const exportToExcel = () => {
+    const data = [
+      ['SKU', 'Description', 'Qty', 'Price', 'Delivery Date'], // Excel headers
+      ...orderEntries.map((entry) => [
+        entry.sku,
+        entry.description,
+        entry.qty,
+        entry.price,
+        entry.deliveryDate,
+      ]),
+    ];
+
+    const ws = XLSX.utils.aoa_to_sheet(data);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'OrderEntries'); // 'OrderEntries' is the sheet name
+
+    const excelBuffer = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+
+    const blob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'order_entries.xlsx'; // The file name for the Excel download
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div>
       <h2>Order Entry</h2>
-      <div>
+      <div className='datafieldentry'>
         <input
           type="text"
           placeholder="SKU"
@@ -57,36 +90,40 @@ const OrderEntry = () => {
         />
         <input
           type="text"
+          placeholder="Description"
+          value={newEntry.description}
+          onChange={(e) => setNewEntry({ ...newEntry, description: e.target.value })}
+        />
+        <input
+          type="number"
           placeholder="Qty"
           value={newEntry.qty}
           onChange={(e) => setNewEntry({ ...newEntry, qty: e.target.value })}
         />
         <input
-          type="text"
-          placeholder="Shipping Address"
-          value={newEntry.shippingAddress}
-          onChange={(e) =>
-            setNewEntry({ ...newEntry, shippingAddress: e.target.value })
-          }
+          type="number"
+          placeholder="Price"
+          value={newEntry.price}
+          onChange={(e) => setNewEntry({ ...newEntry, price: e.target.value })}
         />
-        <input className='Datebox'
-          type="date" // Change the input type to date
-          placeholder="Requested Delivery Date"
-          value={newEntry.requestedDeliveryDate}
-          onChange={(e) =>
-            setNewEntry({ ...newEntry, requestedDeliveryDate: e.target.value })
-          }
+        <input
+          type="date"
+          placeholder="Delivery Date"
+          value={newEntry.deliveryDate}
+          onChange={(e) => setNewEntry({ ...newEntry, deliveryDate: e.target.value })}
         />
         <button onClick={addOrderEntry}>Add</button>
+        <button onClick={exportToExcel}>Export to Excel</button>
       </div>
 
       <table>
         <thead>
           <tr>
             <th>SKU</th>
+            <th>Description</th>
             <th>Qty</th>
-            <th>Shipping Address</th>
-            <th>Requested Delivery Date</th>
+            <th>Price</th>
+            <th>Delivery Date</th>
             <th>Edit</th>
             <th>Delete</th>
           </tr>
@@ -95,9 +132,10 @@ const OrderEntry = () => {
           {orderEntries.map((entry, index) => (
             <tr key={index}>
               <td>{entry.sku}</td>
+              <td>{entry.description}</td>
               <td>{entry.qty}</td>
-              <td>{entry.shippingAddress}</td>
-              <td>{entry.requestedDeliveryDate}</td>
+              <td>{entry.price}</td>
+              <td>{entry.deliveryDate}</td>
               <td>
                 <button onClick={() => editOrderEntry(index)}>Edit</button>
               </td>

@@ -24,7 +24,7 @@ function Home({ items }) {
 
   return (
     <div className="home-container">
-      <h2 className='h2home'>Home Page</h2>
+      <h2 className='h2home'>Admin</h2>
       <div className="stock-widget">
         <p>Stock Level: {calculateStockLevel()}</p>
       </div>

@@ -39,6 +39,7 @@ button:hover {
 
 /* Style the table */
 table {
+  background-color: #ccc;
   align-items: center;
   width: 100%;
   border-collapse: collapse;
@@ -46,9 +47,11 @@ table {
   table-layout: fixed;
 }
 
+
 th, td {
+  color:rgb(0, 0, 0);
   text-align: center;
-  border: 1px solid #ccc;
+  border: 1px solid #000000;
   padding: 8px;
   text-align: left;
   word-wrap: break-word; /* Wrap long content */
@@ -96,4 +99,32 @@ table button:hover {
   width: 25%;
   margin-bottom: 3%;
   margin-left: 34%;
+}
+
+.datafieldentry {
+  display: flex;
+  flex-wrap: wrap; /* Allow children to wrap to the next line if necessary */
+  gap: 10px; /* Adjust the gap between input fields as needed */
+
+  /* Responsive styles */
+  @media screen and (max-width: 768px) {
+    flex-direction: column; /* Stack children vertically on small screens */
+  }
+}
+
+/* Style for individual input fields (you can customize this further) */
+.datafieldentry input {
+  /* Add your input field styles here */
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+/* Style for buttons (you can customize this further) */
+.datafieldentry button {
+  /* Add your button styles here */
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }

@@ -1,4 +1,3 @@
-// App.js
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 import AddItem from './AddItem';
@@ -6,7 +5,6 @@ import EditItem from './EditItem';
 import Home from './Home';
 import OrderEntry from './OrderEntry'; // Import the OrderEntry component
 import './TopMenuBar.css'; // Import the CSS file for Home
-
 
 function App() {
   // Initialize the items state with some dummy data
@@ -23,21 +21,29 @@ function App() {
 
   return (
     <Router>
-      <div className='sizemaindiv'>
+      <div className="sizemaindiv">
         <nav>
-          <ul className='topmanubar'>
-          <li>
-    <Link to="/">Home</Link>
-  </li>
-  <li>
-    <Link to="/add-item">Add Item</Link>
-  </li>
-  <li>
-    <Link to="/edit-item">Edit Item</Link>
-  </li>
-  <li>
-    <Link to="/order-entry">Order Entry</Link>
-  </li>
+          <ul className="topmanubar">
+            <li>
+              <Link to="/">
+                <i className="fa fa-home"></i> Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/add-item">
+                <i className="fa fa-plus"></i> Add Item
+              </Link>
+            </li>
+            <li>
+              <Link to="/edit-item">
+                <i className="fa fa-pencil"></i> Edit Item
+              </Link>
+            </li>
+            <li>
+              <Link to="/order-entry">
+                <i className="fa fa-list"></i> Order Entry
+              </Link>
+            </li>
           </ul>
         </nav>
 

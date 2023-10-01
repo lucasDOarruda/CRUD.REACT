@@ -3,7 +3,7 @@
     list-style-type: none;
     padding: 0;
     margin: 0;
-    background-color: #0078d4; /* Microsoft Blue */
+    background-color: #03030443; /* Microsoft Blue */
     display: flex;
     justify-content: space-evenly; /* Add space around items */
     align-items: center; /* Center items vertically */
@@ -45,7 +45,11 @@
 
 
   .sizemaindiv {
-    background-color: rgba(222, 218, 218, 0.539);
+    background: rgb(2,0,36);
+background: -moz-linear-gradient(0deg, rgba(2,0,36,1) 2%, rgba(0,212,255,1) 100%);
+background: -webkit-linear-gradient(0deg, rgba(2,0,36,1) 2%, rgba(0,212,255,1) 100%);
+background: linear-gradient(0deg, rgba(2,0,36,1) 2%, rgba(0,212,255,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#00d4ff",GradientType=1);
     max-width: 800px; /* Adjust the maximum width as needed */
     margin: 0 auto; /* Center the div horizontally */
     padding: 20px; /* Add padding for spacing */

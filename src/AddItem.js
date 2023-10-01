@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import './index.css'; // Import the CSS file
+import { writeFileSync } from 'xlsx';
+import * as XLSX from 'xlsx'; // Import the XLSX object using the * as XLSX syntax
+
+// ... rest of your component code ...
+
 
 function AddItem() {
   const [items, setItems] = useState([]);
@@ -22,7 +27,7 @@ function AddItem() {
       newItem.qty <= 0 ||
       newItem.skuValue < 0
     ) {
-      setError('Please fill in all fields, and enter valid values for quantity and SKU value.');
+      setError('Please fill in all fields and enter valid values for quantity and SKU value.');
       return;
     }
 
@@ -61,8 +66,30 @@ function AddItem() {
     setTotalSkuValue(total);
   };
 
+  const exportToExcel = () => {
+    const data = [
+      ['SKU', 'Description', 'Quantity (QTY)', 'SKU Value'], // Excel headers
+      ...items.map((item) => [item.sku, item.description, item.qty, item.skuValue]),
+    ];
+
+    const ws = XLSX.utils.aoa_to_sheet(data);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Items'); // 'Items' is the sheet name
+
+    const excelBuffer = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+
+    const blob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'items.xlsx'; // The file name for the Excel download
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
-    <div>
+    <div className='divmainadditem'>
       <h2>Add Item Page</h2>
       <div>
         <input
@@ -95,6 +122,7 @@ function AddItem() {
           onChange={handleChange}
         />
         <button onClick={handleAddItem}>Add Item</button>
+        <button onClick={exportToExcel}>Export to Excel</button>
         {error && <p className="error">{error}</p>}
       </div>
       <table>
