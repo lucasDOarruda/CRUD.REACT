@@ -45,6 +45,7 @@
 
 
   .sizemaindiv {
+    background-color: rgba(222, 218, 218, 0.539);
     max-width: 800px; /* Adjust the maximum width as needed */
     margin: 0 auto; /* Center the div horizontally */
     padding: 20px; /* Add padding for spacing */

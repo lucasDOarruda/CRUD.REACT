@@ -2,17 +2,19 @@
 
 
 .home-container {
+    background-color: rgba(222, 218, 218, 0.539);
     text-align: center;
     padding: 20px;
   }
   
   .stock-widget {
-    background-color: #f0f0f0;
+    background-color: #d0c3327b;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     margin-bottom: 20px;
     text-align: center;
+    font-style: bold;
   }
   
   .item-table {

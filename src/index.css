@@ -1,7 +1,9 @@
 /* AddItem.css (or add this to your global stylesheet) */
 
+
 /* Style the form container */
 .div {
+
   max-width: 500px;
   margin: 0 auto;
   padding: 20px;
@@ -77,4 +79,21 @@ table button:hover {
   margin: 0 auto; /* Center the div horizontally */
   padding: 20px; /* Add padding for spacing */
   box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+
+/* CSS */
+.Shippingaddressbox {
+  /* Add desired styles for the Shipping Address input */
+  width: 50%; /* Adjust the width as needed */
+  margin-right: 10px; /* Add some space between the two inputs */
+}
+
+.Datebox {
+  display: flex;
+  align-content: center;
+  /* Add desired styles for the Date input */
+  width: 25%;
+  margin-bottom: 3%;
+  margin-left: 34%;
 }
