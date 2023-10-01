@@ -19,6 +19,7 @@ button {
   width: 100%;
   padding: 8px;
   margin-bottom: 10px;
+  
 }
 
 button {
@@ -105,7 +106,7 @@ table button:hover {
   display: flex;
   flex-wrap: wrap; /* Allow children to wrap to the next line if necessary */
   gap: 10px; /* Adjust the gap between input fields as needed */
-
+  justify-content: space-evenly;
   /* Responsive styles */
   @media screen and (max-width: 768px) {
     flex-direction: column; /* Stack children vertically on small screens */
@@ -115,6 +116,8 @@ table button:hover {
 /* Style for individual input fields (you can customize this further) */
 .datafieldentry input {
   /* Add your input field styles here */
+  display: flex;
+  
   padding: 5px;
   margin-bottom: 5px;
 }
@@ -122,8 +125,9 @@ table button:hover {
 /* Style for buttons (you can customize this further) */
 .datafieldentry button {
   /* Add your button styles here */
+ 
   padding: 5px 10px;
-  background-color: #007bff;
+  background-color: #1a68bc;
   color: #fff;
   border: none;
   cursor: pointer;

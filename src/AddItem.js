@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import './index.css'; // Import the CSS file
-import { writeFileSync } from 'xlsx';
 import * as XLSX from 'xlsx'; // Import the XLSX object using the * as XLSX syntax
-
-// ... rest of your component code ...
-
 
 function AddItem() {
   const [items, setItems] = useState([]);
@@ -127,7 +123,7 @@ function AddItem() {
       </div>
       <table>
         <thead>
-          <tr>
+          <tr className='Insidecolorcol'>
             <th>SKU</th>
             <th>Description</th>
             <th>Quantity (QTY)</th>
@@ -149,10 +145,12 @@ function AddItem() {
             </tr>
           ))}
         </tbody>
-      </table>
+           {/* Continued from previous code */}
+           </table>
       <p>Total SKU Value: {totalSkuValue}</p>
     </div>
   );
 }
 
 export default AddItem;
+
