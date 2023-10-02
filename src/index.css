@@ -6,10 +6,12 @@
 /* Style the form container */
 
 div.datafieldentry{
+background: #ffffff3a;
 max-width: 800px;
 margin: 0 auto;
 padding: 20px;
 box-sizing: border-box;
+border-radius: 5%;
 
 }
 /* Style form input fields and buttons */
