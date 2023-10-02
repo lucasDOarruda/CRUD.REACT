@@ -1,28 +1,35 @@
-/* AddItem.css (or add this to your global stylesheet) */
+/* AddItem.css (or add this to your global stylesheet) 
 
+
+.
 
 /* Style the form container */
-.div {
 
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+div.datafieldentry{
+max-width: 800px;
+margin: 0 auto;
+padding: 20px;
+box-sizing: border-box;
+
 }
-
 /* Style form input fields and buttons */
 input[type="text"],
 input[type="number"],
 button {
-  display: block;
+  
   width: 100%;
   padding: 8px;
   margin-bottom: 10px;
   
 }
 
+.actionbutton {
+  text-align: center;
+
+}
+
 button {
+  text-align: center;
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -40,13 +47,16 @@ button:hover {
 
 /* Style the table */
 table {
-  background-color: #ccc;
+  background-color: rgba(255, 255, 255, 0.708);
   align-items: center;
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
   table-layout: fixed;
+  backdrop-filter: blur(10px);
 }
+
+
 
 
 th, td {

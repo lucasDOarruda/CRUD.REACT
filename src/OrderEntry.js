@@ -82,6 +82,8 @@ const OrderEntry = () => {
   };
 
   return (
+
+
     <div>
       <h2 className='orderentrytittle'>Order Entry</h2>
       <div className='datafieldentry'>
@@ -154,8 +156,8 @@ const OrderEntry = () => {
       </table>
 
       <div>
-        <button>Save for Later</button>
-        <button>Send Order</button>
+        <button className='actionbutton'>Save for Later</button>
+        <button className='actionbutton'>Send Order</button>
       </div>
     </div>
   );

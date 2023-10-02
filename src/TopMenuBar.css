@@ -45,15 +45,16 @@
 
 
   .sizemaindiv {
-    background: rgba(2, 0, 36, 0.142);
-background: -moz-linear-gradient(0deg, rgba(2,0,36,1) 2%, rgba(0,212,255,1) 100%);
-background: -webkit-linear-gradient(0deg, rgba(2,0,36,1) 2%, rgba(0,212,255,1) 100%);
-background: linear-gradient(0deg, rgba(2,0,36,1) 2%, rgba(0,212,255,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#00d4ff",GradientType=1);
+    background: rgb(224,217,206);
+background: -moz-linear-gradient(180deg, rgba(224,217,206,1) 8%, rgba(105,170,108,1) 45%, rgba(137,54,135,1) 74%, rgba(36,35,147,0.9292364990689013) 84%);
+background: -webkit-linear-gradient(180deg, rgba(224,217,206,1) 8%, rgba(105,170,108,1) 45%, rgba(137,54,135,1) 74%, rgba(36,35,147,0.9292364990689013) 84%);
+background: linear-gradient(180deg, rgba(224,217,206,1) 8%, rgba(105,170,108,1) 45%, rgba(137,54,135,1) 74%, rgba(36,35,147,0.9292364990689013) 84%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e0d9ce",endColorstr="#242393",GradientType=1);
     max-width: none; /* Adjust the maximum width as needed */
     margin: 0 auto; /* Center the div horizontally */
     padding: 20px;/* Add padding for spacing */
-    min-height: 1000vh;
+    min-height: 100vh;
     box-sizing: border-box; /* Include padding in the width calculation */
+    
   }
   

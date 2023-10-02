@@ -60,7 +60,7 @@ function Home() {
           value={searchField}
           onChange={(e) => setSearchField(e.target.value)}
         />
-        <button onClick={handleSearch}>Search</button>
+        <button className='SearchHome' onClick={handleSearch}>Search</button>
       </div>
 
       {/* Conditionally render the table based on visibility */}
