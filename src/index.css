@@ -17,7 +17,7 @@ input[type="text"],
 input[type="number"],
 button {
   
-  width: 100%;
+  
   padding: 8px;
   margin-bottom: 10px;
   
@@ -47,7 +47,7 @@ button:hover {
 
 /* Style the table */
 table {
-  background-color: rgba(202, 199, 199, 0.632);
+  background-color: rgba(202, 199, 199, 0.69);
   align-items: center;
   width: 100%;
   border-collapse: collapse;
