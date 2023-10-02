@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/CRUD.REACT/static/css/main.4b892692.css",
+    "main.css": "/CRUD.REACT/static/css/main.bd5b2f01.css",
     "main.js": "/CRUD.REACT/static/js/main.b52b27e5.js",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/CRUD.REACT/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
     "static/media/fontawesome-webfont.eot": "/CRUD.REACT/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
@@ -8,11 +8,11 @@
     "static/media/fontawesome-webfont.woff?v=4.7.0": "/CRUD.REACT/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
     "static/media/fontawesome-webfont.woff2?v=4.7.0": "/CRUD.REACT/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
     "index.html": "/CRUD.REACT/index.html",
-    "main.4b892692.css.map": "/CRUD.REACT/static/css/main.4b892692.css.map",
+    "main.bd5b2f01.css.map": "/CRUD.REACT/static/css/main.bd5b2f01.css.map",
     "main.b52b27e5.js.map": "/CRUD.REACT/static/js/main.b52b27e5.js.map"
   },
   "entrypoints": [
-    "static/css/main.4b892692.css",
+    "static/css/main.bd5b2f01.css",
     "static/js/main.b52b27e5.js"
   ]
 }
