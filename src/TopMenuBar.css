@@ -1,8 +1,7 @@
 /* Navbar.css */
 .topmanubar {
     list-style-type: none;
-    padding: 0;
-    margin: 0;
+   
     background-color: #d4d4db00; /* Microsoft Blue */
     display: flex;
     justify-content: space-evenly; /* Add space around items */
