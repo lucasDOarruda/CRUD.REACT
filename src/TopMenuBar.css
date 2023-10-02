@@ -3,7 +3,7 @@
     list-style-type: none;
     padding: 0;
     margin: 0;
-    background-color: #d4d4db38; /* Microsoft Blue */
+    background-color: #d4d4db00; /* Microsoft Blue */
     display: flex;
     justify-content: space-evenly; /* Add space around items */
     align-items: center; /* Center items vertically */
@@ -17,7 +17,7 @@
   
   .topmanubar li a {
     text-decoration: none;
-    color: #fff; /* White text color */
+    color: #000000; /* White text color */
     padding: 15px 20px;
     display: block;
     transition: background-color 0.3s;
@@ -50,9 +50,10 @@ background: -moz-linear-gradient(0deg, rgba(2,0,36,1) 2%, rgba(0,212,255,1) 100%
 background: -webkit-linear-gradient(0deg, rgba(2,0,36,1) 2%, rgba(0,212,255,1) 100%);
 background: linear-gradient(0deg, rgba(2,0,36,1) 2%, rgba(0,212,255,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#00d4ff",GradientType=1);
-    max-width: 800px; /* Adjust the maximum width as needed */
+    max-width: none; /* Adjust the maximum width as needed */
     margin: 0 auto; /* Center the div horizontally */
-    padding: 20px; /* Add padding for spacing */
+    padding: 20px;/* Add padding for spacing */
+    min-height: 1000vh;
     box-sizing: border-box; /* Include padding in the width calculation */
   }
   
