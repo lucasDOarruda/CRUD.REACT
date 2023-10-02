@@ -5,6 +5,8 @@ import EditItem from './EditItem';
 import Home from './Home';
 import OrderEntry from './OrderEntry';
 import './TopMenuBar.css';
+import Logistic from './Logistic'; // Import the Logistic component
+
 
 function App() {
   const [items, setItems] = useState([
@@ -42,6 +44,14 @@ function App() {
                 <i className="fa fa-list"></i> Order Entry
               </Link>
             </li>
+            <li>
+              <Link to="/logistic">
+          <i className="fa fa-truck"></i> Logistic
+              </Link>
+</li>
+
+
+
           </ul>
         </nav>
 
@@ -50,6 +60,7 @@ function App() {
           <Route path="/add-item" element={<AddItem onAddItem={handleAddItem} />} />
           <Route path="/edit-item" element={<EditItem items={items} />} />
           <Route path="/order-entry" element={<OrderEntry />} />
+          <Route path="/logistic" element={<Logistic />} />
         </Routes>
       </div>
     </Router>
