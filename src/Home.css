@@ -31,16 +31,19 @@ body, html {
 
 /* Style for table headers */
 .order-table th {
-  background-color: #fff4f4;
+  background-color: #aeaaaac9;
   text-align: left;
   padding: 8px;
   font-weight: bold;
+  text-align: center;
+  flex-wrap: wrap;
 }
 
 /* Style for table cells */
 .order-table td {
+  
   padding: 8px;
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #000000;
 }
 
 /* Style for the delete buttons */

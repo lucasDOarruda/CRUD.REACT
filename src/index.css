@@ -47,12 +47,12 @@ button:hover {
 
 /* Style the table */
 table {
-  background-color: rgba(255, 255, 255, 0.708);
+  background-color: rgba(202, 199, 199, 0.632);
   align-items: center;
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
-  table-layout: fixed;
+  table-layout:auto;
   backdrop-filter: blur(10px);
 }
 
