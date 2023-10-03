@@ -68,6 +68,10 @@ function Home() {
         </Box>
       </div>
 
+    <br/>
+    <br/>
+    <br/>
+
       {tableVisible && (
         <div className="table-container">
           <Box sx={{ height: 400, width: '100%', backgroundColor: 'rgba(224, 217, 206, 0.5)' }}>
