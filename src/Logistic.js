@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import * as XLSX from 'xlsx'; // Import the xlsx library
 import './index.css'; // Import the CSS file
 import { Public } from '@mui/icons-material';
+import './index.css'; // Import the CSS file
 
 const columns: GridColDef[] = [
   { field: 'id', headerName: 'ID', width: 90 },
@@ -89,11 +90,12 @@ function Logistic() {
           '& > :not(style)': {
             m: 1,
             width: '25ch',
-            isplay: 'flex',
             flexDirection: 'row',
             justifyContent: 'space-evenly',
             alignItems: 'center',
             alignContent: 'center',
+            
+            
           },
         }}
         noValidate
