@@ -1,109 +1,118 @@
 import React, { useState } from 'react';
 import './Home.css';
-import { orders } from './dummyData';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import { DataGrid } from '@mui/x-data-grid';
+import { orders } from './dummyData'; // Import the dummy data
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+
+
+const columns = [
+  { field: 'id', headerName: 'ID', width: 90 },
+  {
+    field: 'clientName',
+    headerName: 'Client Name',
+    width: 150,
+  },
+  {
+    field: 'sku',
+    headerName: 'SKU',
+    width: 110,
+  },
+  {
+    field: 'description',
+    headerName: 'Description',
+    width: 200,
+  },
+  {
+    field: 'qty',
+    headerName: 'Qty',
+    type: 'number',
+    width: 90,
+  },
+  {
+    field: 'value',
+    headerName: 'Value',
+    type: 'number',
+    width: 110,
+  },
+];
 
 function Home() {
   const [searchField, setSearchField] = useState('');
-
-
-  
-  const [filteredOrders, setFilteredOrders] = useState([]);
+  const [filteredRows, setFilteredRows] = useState([]);
   const [tableVisible, setTableVisible] = useState(false);
 
-  const handleSearch = () => {
+  const handleSearch = (e) => {
+    e.preventDefault(); // Prevent the default form submission behavior
+
     // Convert the searchField to lowercase for case-insensitive search
     const searchTerm = searchField.toLowerCase();
 
-    // Filter orders based on whether the Order ID or Client Name contains the search term
+    // Filter orders based on whether the Client Name or SKU contains the search term
     const filtered = orders.filter(
       (order) =>
-        order.id.toLowerCase().includes(searchTerm) ||
-        order.clientName.toLowerCase().includes(searchTerm)
+        order.clientName.toLowerCase().includes(searchTerm) ||
+        order.sku.toLowerCase().includes(searchTerm)
     );
 
-    // Update the filtered orders and toggle the table visibility
-    setFilteredOrders(filtered);
+    // Update the filtered rows and toggle the table visibility
+    setFilteredRows(filtered);
     setTableVisible(filtered.length > 0);
-  };
-
-  const handleEdit = (order) => {
-    // Implement the logic for editing an order here
-    console.log(`Editing order with ID: ${order.id}`);
-  };
-
-  const handleDelete = (orderId) => {
-    // Implement the logic for deleting an order here
-    console.log(`Deleting order with ID: ${orderId}`);
-
-    // Remove the deleted order from the filteredOrders state
-    setFilteredOrders((prevOrders) =>
-      prevOrders.filter((order) => order.id !== orderId)
-    );
   };
 
   return (
     <div className="home-container">
-
       <container className="SUMMARY">
-        
-        <h2>Searh ID 1 -20 | Client Name A - T</h2>
-
-         </container>
+        <h2>Search ID 1 - 20 | Client Name A - T</h2>
+      </container>
 
       <h2 className="h2home">Order Tracking</h2>
 
       {/* Search input */}
       <div className="search-container">
-        <input
-          type="text"
-          placeholder="Search by Order ID or Client Name"
-          value={searchField}
-          onChange={(e) => setSearchField(e.target.value)}
-        />
-        <button className='SearchHome' onClick={handleSearch}>Search</button>
+        <Box
+          component="form"
+          sx={{
+            '& .MuiTextField-root': { m: 1, width: '25ch' },
+          }}
+          noValidate
+          autoComplete="off"
+          onSubmit={handleSearch}
+        >
+          <div>
+            <TextField
+              id="standard-search"
+              label="Search field"
+              type="search"
+              variant="standard"
+              value={searchField}
+              onChange={(e) => setSearchField(e.target.value)}
+            />
+
+
+
+            <Button type="submit" sx={{ paddingTop: '3%' }}>
+  Search
+</Button>
+            
+          </div>
+        </Box>
       </div>
 
       {/* Conditionally render the table based on visibility */}
       {tableVisible && (
         <div className="table-container">
-          <table className="order-table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Client Name</th>
-                <th>SKU</th>
-                <th>Description</th>
-                <th>Qty</th>
-                <th>Value</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredOrders.map((order) => (
-                <tr key={order.id}>
-                  <td className="small-text">{order.id}</td>
-                  <td className="small-text">{order.clientName}</td>
-                  <td className="small-text">{order.sku}</td>
-                  <td className="small-text">{order.description}</td>
-                  <td className="small-text">{order.qty}</td>
-                  <td className="small-text">{order.value}</td>
-                  <td className="small-text">
-                    {/* Status with three lines */}
-                    <ul>
-                      <li>Order Placed</li>
-                      
-                    </ul>
-                  </td>
-                  <td>
-                    {/* Edit and Delete buttons with event handlers */}
-                    <button onClick={() => handleEdit(order)}>Edit</button>
-                    <button onClick={() => handleDelete(order.id)}>Delete</button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <Box sx={{ height: 400, width: '100%' ,backgroundColor: 'rgba(224, 217, 206, 0.5)'}}>
+            <DataGrid
+              rows={filteredRows}
+              columns={columns}
+              pageSize={5}
+              checkboxSelection
+              disableRowSelectionOnClick
+            />
+          </Box>
         </div>
       )}
     </div>
