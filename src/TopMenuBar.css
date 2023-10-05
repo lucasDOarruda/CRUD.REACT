@@ -57,3 +57,14 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e0d9ce",endCo
     
   }
   
+
+  .MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation16.MuiDrawer-paper.MuiDrawer-paperAnchorLeft{
+    
+      padding-top: 25%;
+      font-size: 33px;
+      height: 300vh;
+      transform: none;
+      transition: transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  
+
+  }
