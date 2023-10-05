@@ -17,6 +17,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import DemoEntry from './DemoEntry'; // Import the DemoEntry component
+import './Entry.css';
 
 
 // Add import for Inventory component if it exists
