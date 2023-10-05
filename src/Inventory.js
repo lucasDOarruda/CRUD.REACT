@@ -46,27 +46,8 @@ function Inventory() {
   const handleAddToTable = () => {
     const { productName, category, quantity, price, unitCarton, ctnWeight, ctnHeight, ctnWidth } = formData;
 
-    if (
-      productName &&
-      category &&
-      quantity >= 0 &&
-      price >= 0 &&
-      unitCarton &&
-      ctnWeight >= 0 &&
-      ctnHeight >= 0 &&
-      ctnWidth >= 0
-    ) {
-      const newRow = {
-        id: nextId,
-        productName,
-        category,
-        quantity,
-        price,
-        unitCarton,
-        ctnWeight,
-        ctnHeight,
-        ctnWidth,
-      };
+    if (productName && category && quantity >= 0 && price >= 0 && unitCarton && ctnWeight >= 0 && ctnHeight >= 0 && ctnWidth >= 0) {
+      const newRow = { id: nextId, productName, category, quantity, price, unitCarton, ctnWeight, ctnHeight, ctnWidth };
       setRows([...rows, newRow]);
       setFormData(initialState);
       setNextId(nextId + 1);
@@ -88,9 +69,7 @@ function Inventory() {
 
   const handleSearch = () => {
     const filteredData = rows.filter((row) => {
-      const values = Object.values(row).map((value) =>
-        value.toString().toLowerCase()
-      );
+      const values = Object.values(row).map((value) => value.toString().toLowerCase());
       return values.some((value) => value.includes(searchTerm.toLowerCase()));
     });
     setFilteredRows(filteredData);
@@ -104,7 +83,6 @@ function Inventory() {
   return (
     <div>
       <h2 className='inventorytitle' style={{ textAlign: 'center' }}>
-        
         Inventory Management
       </h2>
 
@@ -132,11 +110,7 @@ function Inventory() {
             label={fieldName.charAt(0).toUpperCase() + fieldName.slice(1)}
             variant="standard"
             type={
-              fieldName === 'quantity' ||
-              fieldName === 'price' ||
-              fieldName === 'ctnWeight' ||
-              fieldName === 'ctnHeight' ||
-              fieldName === 'ctnWidth'
+              fieldName === 'quantity' || fieldName === 'price' || fieldName === 'ctnWeight' || fieldName === 'ctnHeight' || fieldName === 'ctnWidth'
                 ? 'number'
                 : 'text'
             }
@@ -163,34 +137,6 @@ function Inventory() {
           Export
         </Button>
       </Stack>
-
-      <br />
-      <br />
-      <br />
-
-      {/* Search Box and Button */}
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <TextField
-          id="search"
-          name="search"
-          label="Search"
-          variant="outlined"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <Button variant="contained" onClick={handleSearch}>
-          Search
-        </Button>
-        <Button variant="contained" onClick={handleClearSearch}>
-          Clear
-        </Button>
-      </Box>
 
       <br />
       <br />

@@ -16,6 +16,8 @@ import Typography from '@mui/material/Typography';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import DemoEntry from './DemoEntry'; // Import the DemoEntry component
+
 
 // Add import for Inventory component if it exists
 import Inventory from './Inventory';
@@ -103,6 +105,8 @@ function App() {
               </Link>
             </ListItem>
 
+            
+
             {/* Add a new link for Inventory */}
             <ListItem button onClick={() => setDrawerOpen(false)}>
               <Link to="/inventory" className="menu-link">
@@ -113,12 +117,12 @@ function App() {
         </Drawer>
 
         <Routes>
-          <Route path="/" element={<Home items={items} />} />
+        <Route path="/" element={<DemoEntry />} />
 
-          <Route path="/logistic" element={<Logistic />} />
-
-          {/* Add a new route for Inventory */}
-          <Route path="/inventory" element={<Inventory />} />
+        <Route path="/home" element={<Home items={items} />} />
+        
+        <Route path="/logistic" element={<Logistic />} />
+        <Route path="/inventory" element={<Inventory />} />
         </Routes>
       </div>
     </Router>
