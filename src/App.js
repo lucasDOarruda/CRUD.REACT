@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
-import AddItem from './AddItem';
-import EditItem from './EditItem';
 import Home from './Home';
 import OrderEntry from './OrderEntry';
-import './TopMenuBar.css';
 import Logistic from './Logistic'; // Import the Logistic component
+import './TopMenuBar.css';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -14,6 +12,13 @@ import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
+import Typography from '@mui/material/Typography';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+
+// Add import for Inventory component if it exists
+import Inventory from './Inventory';
 
 function App() {
   const [items, setItems] = useState([
@@ -23,9 +28,19 @@ function App() {
   ]);
 
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [auth, setAuth] = useState(true);
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const handleAddItem = (item) => {
     setItems([...items, item]);
+  };
+
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
   };
 
   return (
@@ -41,28 +56,43 @@ function App() {
             >
               <MenuIcon />
             </IconButton>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              Menu
+            </Typography>
+            {auth && (
+              <div>
+                <IconButton
+                  size="large"
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  onClick={handleMenu}
+                  color="inherit"
+                >
+                  <AccountCircle />
+                </IconButton>
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorEl}
+                  anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+                  keepMounted
+                  transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+                  open={Boolean(anchorEl)}
+                  onClose={handleClose}
+                >
+                  <MenuItem onClick={handleClose}>Profile</MenuItem>
+                  <MenuItem onClick={handleClose}>My account</MenuItem>
+                </Menu>
+              </div>
+            )}
           </Toolbar>
         </AppBar>
 
-        <Drawer
-          anchor="left"
-          open={drawerOpen}
-          onClose={() => setDrawerOpen(false)}
-        >
+        <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
           <List>
             <ListItem button onClick={() => setDrawerOpen(false)}>
               <Link to="/" className="menu-link">
                 Home
-              </Link>
-            </ListItem>
-            <ListItem button onClick={() => setDrawerOpen(false)}>
-              <Link to="/add-item" className="menu-link">
-                Add Item
-              </Link>
-            </ListItem>
-            <ListItem button onClick={() => setDrawerOpen(false)}>
-              <Link to="/edit-item" className="menu-link">
-                Edit Item
               </Link>
             </ListItem>
             <ListItem button onClick={() => setDrawerOpen(false)}>
@@ -75,15 +105,23 @@ function App() {
                 Logistic
               </Link>
             </ListItem>
+
+            {/* Add a new link for Inventory */}
+            <ListItem button onClick={() => setDrawerOpen(false)}>
+              <Link to="/inventory" className="menu-link">
+                Inventory
+              </Link>
+            </ListItem>
           </List>
         </Drawer>
 
         <Routes>
-          <Route path="" element={<Home items={items} />} />
-          <Route path="/add-item" element={<AddItem onAddItem={handleAddItem} />} />
-          <Route path="/edit-item" element={<EditItem items={items} />} />
+          <Route path="/" element={<Home items={items} />} />
           <Route path="/order-entry" element={<OrderEntry />} />
           <Route path="/logistic" element={<Logistic />} />
+
+          {/* Add a new route for Inventory */}
+          <Route path="/inventory" element={<Inventory />} />
         </Routes>
       </div>
     </Router>

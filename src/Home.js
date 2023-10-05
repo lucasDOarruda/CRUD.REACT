@@ -5,6 +5,7 @@ import TextField from '@mui/material/TextField';
 import { DataGrid } from '@mui/x-data-grid';
 import { orders } from './dummyData'; // Import the dummy data
 import Button from '@mui/material/Button';
+import CustomBackdrop from './CustomBackdrop'; // Import the CustomBackdrop component
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 90 },
@@ -19,9 +20,13 @@ function Home() {
   const [searchField, setSearchField] = useState('');
   const [filteredRows, setFilteredRows] = useState([]);
   const [tableVisible, setTableVisible] = useState(false);
+  const [backdropOpen, setBackdropOpen] = useState(false);
 
   const handleSearch = (e) => {
     e.preventDefault();
+
+    // Show the backdrop when the search is in progress
+    setBackdropOpen(true);
 
     const searchTerm = searchField.toLowerCase();
 
@@ -31,12 +36,21 @@ function Home() {
         order.sku.toLowerCase().includes(searchTerm)
     );
 
-    setFilteredRows(filtered);
-    setTableVisible(filtered.length > 0);
+    // Simulate an asynchronous operation (e.g., API call) with a delay
+    setTimeout(() => {
+      setFilteredRows(filtered);
+      setTableVisible(filtered.length > 0);
+
+      // Hide the backdrop when loading is done
+      setBackdropOpen(false);
+    }, 1000); // Adjust the delay as needed
   };
 
   return (
     <div className="home-container">
+      {/* Add the CustomBackdrop component */}
+      <CustomBackdrop open={backdropOpen} handleClose={() => setBackdropOpen(false)} />
+
       <div className="SUMMARY">
         <h2>Search ID 1 - 20 | Client Name A - T</h2>
       </div>
@@ -67,10 +81,6 @@ function Home() {
           </div>
         </Box>
       </div>
-
-    <br/>
-    <br/>
-    <br/>
 
       {tableVisible && (
         <div className="table-container">
