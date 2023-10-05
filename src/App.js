@@ -45,7 +45,7 @@ function App() {
 
   return (
     <Router>
-      <div>
+      <div className='Sidebar'>
         <AppBar position="static">
           <Toolbar>
             <IconButton
@@ -89,17 +89,14 @@ function App() {
         </AppBar>
 
         <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-          <List>
+          <List className='listnavbar'>
             <ListItem button onClick={() => setDrawerOpen(false)}>
               <Link to="/" className="menu-link">
                 Home
               </Link>
             </ListItem>
-            <ListItem button onClick={() => setDrawerOpen(false)}>
-              <Link to="/order-entry" className="menu-link">
-                Order Entry
-              </Link>
-            </ListItem>
+            
+         
             <ListItem button onClick={() => setDrawerOpen(false)}>
               <Link to="/logistic" className="menu-link">
                 Logistic
@@ -117,7 +114,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home items={items} />} />
-          <Route path="/order-entry" element={<OrderEntry />} />
+
           <Route path="/logistic" element={<Logistic />} />
 
           {/* Add a new route for Inventory */}
