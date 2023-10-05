@@ -37,6 +37,7 @@ function Inventory() {
   const [nextId, setNextId] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredRows, setFilteredRows] = useState([]);
+  const [selectedFile, setSelectedFile] = useState(null);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -78,6 +79,28 @@ function Inventory() {
   const handleClearSearch = () => {
     setSearchTerm('');
     setFilteredRows([]);
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setSelectedFile(file);
+  };
+
+  const handleImportFromExcel = () => {
+    if (selectedFile) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const data = new Uint8Array(e.target.result);
+        const workbook = XLSX.read(data, { type: 'array' });
+        const sheetName = workbook.SheetNames[0];
+        const sheet = workbook.Sheets[sheetName];
+        const importedData = XLSX.utils.sheet_to_json(sheet);
+
+        // Add the imported data to the existing rows
+        setRows([...rows, ...importedData]);
+      };
+      reader.readAsArrayBuffer(selectedFile);
+    }
   };
 
   return (
@@ -136,6 +159,18 @@ function Inventory() {
         <Button variant="contained" onClick={handleExportToExcel}>
           Export
         </Button>
+
+        {/* Add the Import button and file input */}
+        <Button variant="contained" onClick={handleImportFromExcel}>
+          Import from Excel
+        </Button>
+
+        <input type="file" accept=".xlsx" onChange={handleFileChange} style={{ display: 'none' }} id="excelFileInput" />
+        <label htmlFor="excelFileInput">
+          <Button variant="contained" component="span">
+            Upload Excel File
+          </Button>
+        </label>
       </Stack>
 
       <br />
