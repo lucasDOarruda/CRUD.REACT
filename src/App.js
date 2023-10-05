@@ -6,7 +6,14 @@ import Home from './Home';
 import OrderEntry from './OrderEntry';
 import './TopMenuBar.css';
 import Logistic from './Logistic'; // Import the Logistic component
-
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
 
 function App() {
   const [items, setItems] = useState([
@@ -15,45 +22,61 @@ function App() {
     { sku: 'GHI789', description: 'Item 3', qty: 20 },
   ]);
 
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
   const handleAddItem = (item) => {
     setItems([...items, item]);
   };
 
   return (
     <Router>
-      <div className="sizemaindiv">
-        <nav>
-          <ul className="topmanubar">
-            <li>
-              <Link to="/">
-                <i className="fa fa-home"></i> Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/add-item">
-                <i className="fa fa-plus"></i> Add Item
-              </Link>
-            </li>
-            <li>
-              <Link to="/edit-item">
-                <i className="fa fa-pencil"></i> Edit Item
-              </Link>
-            </li>
-            <li>
-              <Link to="/order-entry">
-                <i className="fa fa-list"></i> Order Entry
-              </Link>
-            </li>
-            <li>
-              <Link to="/logistic">
-          <i className="fa fa-truck"></i> Logistic
-              </Link>
-</li>
+      <div>
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              onClick={() => setDrawerOpen(true)}
+            >
+              <MenuIcon />
+            </IconButton>
+          </Toolbar>
+        </AppBar>
 
-
-
-          </ul>
-        </nav>
+        <Drawer
+          anchor="left"
+          open={drawerOpen}
+          onClose={() => setDrawerOpen(false)}
+        >
+          <List>
+            <ListItem button onClick={() => setDrawerOpen(false)}>
+              <Link to="/" className="menu-link">
+                Home
+              </Link>
+            </ListItem>
+            <ListItem button onClick={() => setDrawerOpen(false)}>
+              <Link to="/add-item" className="menu-link">
+                Add Item
+              </Link>
+            </ListItem>
+            <ListItem button onClick={() => setDrawerOpen(false)}>
+              <Link to="/edit-item" className="menu-link">
+                Edit Item
+              </Link>
+            </ListItem>
+            <ListItem button onClick={() => setDrawerOpen(false)}>
+              <Link to="/order-entry" className="menu-link">
+                Order Entry
+              </Link>
+            </ListItem>
+            <ListItem button onClick={() => setDrawerOpen(false)}>
+              <Link to="/logistic" className="menu-link">
+                Logistic
+              </Link>
+            </ListItem>
+          </List>
+        </Drawer>
 
         <Routes>
           <Route path="" element={<Home items={items} />} />
