@@ -60,6 +60,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e0d9ce",endCo
 
   .MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation16.MuiDrawer-paper.MuiDrawer-paperAnchorLeft{
     
+    background-color: #d2d3d3f1;
       padding-top: 25%;
       font-size: 33px;
       height: 300vh;
@@ -68,3 +69,15 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e0d9ce",endCo
   
 
   }
+
+
+  a.menu-link {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #000000; /* Default text color */
+    text-decoration: none; /* Remove underline by default */
+    transition: color 0.3s; /* Add a smooth color transition effect */
+}
+
+a.menu-link:hover {
+    color: blue; /* Change text color to blue on hover */
+}
