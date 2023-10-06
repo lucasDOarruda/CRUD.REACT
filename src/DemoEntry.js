@@ -21,9 +21,9 @@ function DemoEntry() {
 
 
     <div className='Entrytext'>
-      <h1>Welcome to the Demo Entry Page</h1>
-      <p>Click the button below to go to the main page:</p>
-      <Link to="/home">Go to Main Page</Link>
+      <h1>Let's Start</h1>
+      <p>Click the button below to go to the</p>
+      <Link to="/home">Order tracking</Link>
     </div>
 
     <br/>

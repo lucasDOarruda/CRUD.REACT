@@ -1,4 +1,5 @@
 .Entrytext {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
     background-color: #54ea53;
     margin-top: 2%;
@@ -8,9 +9,12 @@
     padding-bottom: 10%;
     padding-bottom: 10%;padding-top: 10%;
     /* display: flex; */
+    border-radius: 10px;
+box-shadow: 5px 5px 10px 10px rgba(0,0,0,0.5);
 }
 
 .Entrytext2 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: whitesmoke;
     text-align: center;
     background-color: #5448fa;
@@ -19,25 +23,27 @@
     margin-right: 50%;
     max-height: 1000vh;
     padding-bottom: 10%;padding-top: 10%;
-
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 10px rgba(0,0,0,0.5);
     /* display: flex; */
 }
 
 
 .height{
-    height: 500vh;
+   max-height:50vh
   }
 
 
 .MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.css-1rwt2y5-MuiButtonBase-root-MuiButton-root{
     
-font-size: 2cm;
+font-size: 1cm;
 font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 text-align: center;
 color: antiquewhite;
 background-color: cornflowerblue;
-height: 500px;
-width: 700px;
 
+
+border-radius: 10px;
+box-shadow: 5px 5px 10px 10px rgba(0,0,0,0.5);
 
 }
