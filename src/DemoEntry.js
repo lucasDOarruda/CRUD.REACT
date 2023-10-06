@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import './Entry.css';
 import Emailform from './Emailform';
 import SimpleBarChart from './Components/SimpleBarChart';
-
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import { BackupTwoTone } from '@mui/icons-material';
 
 
 function DemoEntry() {
@@ -43,7 +45,7 @@ function DemoEntry() {
       <div className='Entrytext'>
         <h1>Let's Start</h1>
         <p>Click the button below to go to the</p>
-        <Link to="/home">Order tracking</Link>
+        <Button variant="contained" size="medium" to="/home">Order tracking</Button>
       </div>
 
       <br/>
