@@ -31,11 +31,13 @@
 
 .MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.css-1rwt2y5-MuiButtonBase-root-MuiButton-root{
     
+font-size: 2cm;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+text-align: center;
+color: antiquewhite;
+background-color: cornflowerblue;
+height: 500px;
+width: 700px;
 
-
-
-        width: 500px;
-        height: 400px;
- 
 
 }

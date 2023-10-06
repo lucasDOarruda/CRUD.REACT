@@ -21,14 +21,13 @@ export default function Emailform() {
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
-        Open form dialog
+        Let's get in contact 
       </Button>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Subscribe</DialogTitle>
+        <DialogTitle>Let's Chat</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            To subscribe to this website, please enter your email address here. We
-            will send updates occasionally.
+          Please enter your email address here. I will get in touch shorty.
           </DialogContentText>
           <TextField
             autoFocus
@@ -42,7 +41,7 @@ export default function Emailform() {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Subscribe</Button>
+          <Button onClick={handleClose}>Send</Button>
         </DialogActions>
       </Dialog>
     </div>
