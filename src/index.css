@@ -159,8 +159,9 @@ justify-content: space-evenly;
 
 
 
-.logistictittle{
-  text-align: center;
+.logistictitle{
+
+
 }
 
 
@@ -169,6 +170,3 @@ justify-content: space-evenly;
 }
 
 
-.listnavbar{
-  color: black;
-}

@@ -23,7 +23,7 @@ box-shadow: 5px 5px 10px 10px rgba(0,0,0,0.5);
     align-content: center;
     margin-right: 50%;
     max-height: 1000vh;
-    padding-bottom: 10%;padding-top: 10%;
+  
     border-radius: 10px;
     box-shadow: 5px 5px 10px 10px rgba(0,0,0,0.5);
     /* display: flex; */
@@ -36,14 +36,14 @@ box-shadow: 5px 5px 10px 10px rgba(0,0,0,0.5);
 
 .Entrytext4 {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: rgb(0, 0, 0);
+    color: rgb(239, 235, 235);
     text-align: center;
-    background-color: #06eefe;
+    background-color: #0a0b0bc7;
     margin-top: 1%;
     align-content: center;
     margin-right: 50%;
     max-height: 1000vh;
-    padding-bottom: 10%;padding-top: 10%;
+    
     border-radius: 10px;
     box-shadow: 5px 5px 10px 10px rgba(0,0,0,0.5);
     /* display: flex; */
@@ -61,7 +61,7 @@ box-shadow: 5px 5px 10px 10px rgba(0,0,0,0.5);
     align-content: center;
     margin-left: 50%;
     max-height: 1000vh;
-    padding-bottom: 10%;padding-top: 10%;
+   
     border-radius: 10px;
     box-shadow: 5px 5px 10px 10px rgba(0,0,0,0.5);
     /* display: flex; */
@@ -69,13 +69,14 @@ box-shadow: 5px 5px 10px 10px rgba(0,0,0,0.5);
 
 
 .height{
-   max-height:50vh
-  }
-
+    max-height: 100vh;
+    padding-left: 200px;
+    padding-right: 100px;
+}
 
 .MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.css-1rwt2y5-MuiButtonBase-root-MuiButton-root{
     
-font-size: 1cm;
+font-size: 2cm;
 font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 text-align: center;
 color: antiquewhite;

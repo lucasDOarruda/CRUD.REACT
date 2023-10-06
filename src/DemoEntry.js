@@ -31,7 +31,7 @@ function DemoEntry() {
       </div>
 
       <div className='Entrytext4'>
-        <h1>Custom Flooting Indicators Widgets </h1>
+        <h1>Custom Indicators  </h1>
         <p>
         <SimpleBarChart />
         </p>
