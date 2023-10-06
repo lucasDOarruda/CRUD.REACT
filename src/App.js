@@ -64,7 +64,7 @@ function App() {
               Menu
             </Typography>
             {auth && (
-              <div >
+              <div className=''>
                 <IconButton
                   size="large"
                   aria-label="account of current user"
