@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/CRUD.REACT/static/css/main.2167e44b.css",
-    "main.js": "/CRUD.REACT/static/js/main.aef90b02.js",
+    "main.css": "/CRUD.REACT/static/css/main.808e9a4e.css",
+    "main.js": "/CRUD.REACT/static/js/main.26fca866.js",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/CRUD.REACT/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
     "static/media/fontawesome-webfont.eot": "/CRUD.REACT/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
     "static/media/fontawesome-webfont.ttf?v=4.7.0": "/CRUD.REACT/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
     "static/media/fontawesome-webfont.woff?v=4.7.0": "/CRUD.REACT/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
     "static/media/fontawesome-webfont.woff2?v=4.7.0": "/CRUD.REACT/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
     "index.html": "/CRUD.REACT/index.html",
-    "main.2167e44b.css.map": "/CRUD.REACT/static/css/main.2167e44b.css.map",
-    "main.aef90b02.js.map": "/CRUD.REACT/static/js/main.aef90b02.js.map"
+    "main.808e9a4e.css.map": "/CRUD.REACT/static/css/main.808e9a4e.css.map",
+    "main.26fca866.js.map": "/CRUD.REACT/static/js/main.26fca866.js.map"
   },
   "entrypoints": [
-    "static/css/main.2167e44b.css",
-    "static/js/main.aef90b02.js"
+    "static/css/main.808e9a4e.css",
+    "static/js/main.26fca866.js"
   ]
 }
