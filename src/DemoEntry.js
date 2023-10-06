@@ -45,7 +45,11 @@ function DemoEntry() {
       <div className='Entrytext'>
         <h1>Let's Start</h1>
         <p>Click the button below to go to the</p>
-        <Button variant="contained" size="medium" to="/home">Order tracking</Button>
+        <Link to="/home" style={{ textDecoration: 'none' }}>
+      <Button variant="contained" color="primary">
+        Order tracking
+      </Button>
+    </Link>
       </div>
 
       <br/>
