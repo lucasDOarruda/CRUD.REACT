@@ -103,7 +103,7 @@ function App() {
          
             <ListItem button onClick={() => setDrawerOpen(false)}>
               <Link to="/logistic" className="menu-link">
-                Logistic
+                Bulk Order
               </Link>
             </ListItem>
 
