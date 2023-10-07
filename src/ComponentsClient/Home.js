@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import './Styles/Home.css';
+
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { DataGrid } from '@mui/x-data-grid';
-import { orders } from './dummyData'; // Import the dummy data
+import { orders } from '../dummyData'; // Import the dummy data
 import Button from '@mui/material/Button';
-import CustomBackdrop from './CustomBackdrop'; // Import the CustomBackdrop component
+import CustomBackdrop from '../Components/CustomBackdrop'; // Import the CustomBackdrop component
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 90 },

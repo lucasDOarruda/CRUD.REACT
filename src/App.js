@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
-import Home from './Home';
-import OrderEntry from './OrderEntry';
-import Logistic from './Logistic'; // Import the Logistic component
+import Home from './ComponentsClient/Home';
+import Inventory from './ComponentsClient/Inventory'; // 
+
+import Logistic from './ComponentsClient/Logistic'; // Import the Logistic component
 import './Styles/TopMenuBar.css';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -21,7 +22,7 @@ import DemoEntry from './DemoEntry'; // Import the DemoEntry component
 
 
 // Add import for Inventory component if it exists
-import Inventory from './Inventory';
+
 import { Height } from '@mui/icons-material';
 
 function App() {

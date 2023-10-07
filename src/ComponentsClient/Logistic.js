@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import * as XLSX from 'xlsx';
-import './Styles/index.css';
+
 import { Public } from '@mui/icons-material';
 
 const columns: GridColDef[] = [
