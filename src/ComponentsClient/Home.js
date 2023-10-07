@@ -5,7 +5,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import { orders } from '../dummyData'; // Import the dummy data
 import Button from '@mui/material/Button';
 import CustomBackdrop from '../Components/CustomBackdrop'; // Import the CustomBackdrop component
-
+import '../Styles/Home.css';
 
 
 
