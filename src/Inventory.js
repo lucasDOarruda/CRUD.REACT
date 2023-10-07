@@ -1,12 +1,24 @@
-import React, { useState } from 'react';
-import Box from '@mui/material/Box';
+// Inventory.js
+import React, { useEffect, useState } from 'react';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import TextField from '@mui/material/TextField';
-import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import * as XLSX from 'xlsx';
-import './index.css';
-import { Public } from '@mui/icons-material';
+import Box from '@mui/material/Box';
+import './Inventory.css'; // Import the CSS for styling
+import axios from 'axios';
+
+
+const initialState = {
+  productName: '',
+  category: '',
+  quantity: 0,
+  price: 0,
+  unitCarton: '',
+  ctnWeight: 0,
+  ctnHeight: 0,
+  ctnWidth: 0,
+};
 
 const columns: GridColDef[] = [
   { field: 'id', headerName: 'ID', width: 90 },
@@ -21,23 +33,25 @@ const columns: GridColDef[] = [
 ];
 
 function Inventory() {
-  const initialState = {
-    productName: '',
-    category: '',
-    quantity: 0,
-    price: 0,
-    unitCarton: '',
-    ctnWeight: 0,
-    ctnHeight: 0,
-    ctnWidth: 0,
-  };
-
   const [formData, setFormData] = useState(initialState);
   const [rows, setRows] = useState([]);
   const [nextId, setNextId] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredRows, setFilteredRows] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
+
+  useEffect(() => {
+    // Fetch inventory data from the server when the component mounts
+    axios.get('/api/inventory')
+      .then((response) => {
+        setRows(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching inventory data:', error);
+      });
+  }, []);
+
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -96,7 +110,6 @@ function Inventory() {
         const sheet = workbook.Sheets[sheetName];
         const importedData = XLSX.utils.sheet_to_json(sheet);
 
-        // Add the imported data to the existing rows
         setRows([...rows, ...importedData]);
       };
       reader.readAsArrayBuffer(selectedFile);
@@ -104,27 +117,12 @@ function Inventory() {
   };
 
   return (
-    <div>
+    <div className='inventory-container'>
       <h2 className='inventorytitle' style={{ textAlign: 'center' }}>
         Inventory Management
       </h2>
 
-      <Box
-        component="form"
-        sx={{
-          '& > :not(style)': {
-            m: 1,
-            width: '25ch',
-            textAlign: 'center',
-            flexDirection: 'row',
-            justifyContent: 'space-evenly',
-            alignItems: 'center',
-            alignContent: 'center',
-          },
-        }}
-        noValidate
-        autoComplete="off"
-      >
+      <form className='form-container'>
         {Object.entries(formData).map(([fieldName, fieldValue]) => (
           <TextField
             key={fieldName}
@@ -132,56 +130,46 @@ function Inventory() {
             name={fieldName}
             label={fieldName.charAt(0).toUpperCase() + fieldName.slice(1)}
             variant="standard"
-            type={
-              fieldName === 'quantity' || fieldName === 'price' || fieldName === 'ctnWeight' || fieldName === 'ctnHeight' || fieldName === 'ctnWidth'
-                ? 'number'
-                : 'text'
-            }
+            type={fieldName === 'quantity' || fieldName === 'price' || fieldName === 'ctnWeight' || fieldName === 'ctnHeight' || fieldName === 'ctnWidth' ? 'number' : 'text'}
             value={fieldValue}
             onChange={handleInputChange}
+            className='form-field'
           />
         ))}
-      </Box>
 
-      <br />
-      <br />
-      <br />
-
-      <Stack spacing={2} direction="row">
-        <Button variant="contained" onClick={handleAddToTable}>
-          Add to Table
-        </Button>
-
-        <Button variant="contained" onClick={handleDeleteSelected}>
-          Delete
-        </Button>
-
-        <Button variant="contained" onClick={handleExportToExcel}>
-          Export
-        </Button>
-
-        {/* Add the Import button and file input */}
-        <Button variant="contained" onClick={handleImportFromExcel}>
-          Import from Excel
-        </Button>
-
-        <input type="file" accept=".xlsx" onChange={handleFileChange} style={{ display: 'none' }} id="excelFileInput" />
-        <label htmlFor="excelFileInput">
-          <Button variant="contained" component="span">
-            Upload Excel File
+        <div className='button-container'>
+          <Button variant="contained" onClick={handleAddToTable}>
+            Add to Table
           </Button>
-        </label>
-      </Stack>
 
-      <br />
-      <br />
-      <br />
+          <Button variant="contained" onClick={handleDeleteSelected}>
+            Delete
+          </Button>
 
-      <Box sx={{ height: 400, width: '100%', backgroundColor: 'rgba(224, 217, 206, 0.5)' }}>
+          <Button variant="contained" onClick={handleExportToExcel}>
+            Export
+          </Button>
+
+          <Button variant="contained" onClick={handleImportFromExcel}>
+            Import from Excel
+          </Button>
+
+          <input type="file" accept=".xlsx" onChange={handleFileChange} style={{ display: 'none' }} id="excelFileInput" />
+          <label htmlFor="excelFileInput">
+
+          <Button variant="contained" component="span">
+              Upload Excel File
+            </Button>
+          </label>
+        </div>
+      </form>
+
+      <div className='table-container'>
         <DataGrid rows={filteredRows.length > 0 ? filteredRows : rows} columns={columns} pageSize={5} checkboxSelection disableRowSelectionOnClick />
-      </Box>
+      </div>
     </div>
   );
 }
 
 export default Inventory;
+
