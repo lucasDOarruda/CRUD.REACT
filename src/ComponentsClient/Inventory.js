@@ -5,6 +5,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import * as XLSX from 'xlsx';
 import Box from '@mui/material/Box';
+import '../Styles/Inventory.css';
 
 
 
