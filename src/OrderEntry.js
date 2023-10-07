@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './index.css'; // Import the CSS file
+import './Styles/index.css'; // Import the CSS file
 
 import { writeFileSync } from 'xlsx';
 import * as XLSX from 'xlsx'; // Import the XLSX object using the * as XLSX syntax

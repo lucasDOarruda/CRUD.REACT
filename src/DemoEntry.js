@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Entry.css';
+import './Styles/Entry.css';
 import Emailform from './Emailform';
 import SimpleBarChart from './Components/SimpleBarChart';
 import Box from '@mui/material/Box';

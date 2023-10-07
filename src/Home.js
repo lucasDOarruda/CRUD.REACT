@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Home.css';
+import './Styles/Home.css';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { DataGrid } from '@mui/x-data-grid';

@@ -4,8 +4,8 @@ import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import * as XLSX from 'xlsx'; // Import the xlsx library
-import './index.css'; // Import the CSS file
+import * as XLSX from 'xlsx';
+import './Styles/index.css';
 import { Public } from '@mui/icons-material';
 
 const columns: GridColDef[] = [
@@ -20,18 +20,18 @@ const columns: GridColDef[] = [
   { field: 'notes', headerName: 'Notes', width: 200, editable: true },
 ];
 
-function Logistic() {
-  const initialState = {
-    customer: '',
-    sku: '',
-    description: '',
-    qty: 0,
-    value: 0,
-    shippingAddress: '',
-    deliveryDate: '',
-    notes: '',
-  };
+const initialState = {
+  customer: '',
+  sku: '',
+  description: '',
+  qty: 0,
+  value: 0,
+  shippingAddress: '',
+  deliveryDate: '',
+  notes: '',
+};
 
+function Logistic() {
   const [formData, setFormData] = useState(initialState);
   const [rows, setRows] = useState([]);
   const [nextId, setNextId] = useState(1);
@@ -43,12 +43,12 @@ function Logistic() {
 
   const handleAddToTable = () => {
     const { customer, sku, description, qty, value, shippingAddress, deliveryDate, notes } = formData;
-  
+
     if (customer && sku && description && qty >= 0 && value >= 0 && shippingAddress && deliveryDate) {
       const newRow = {
         id: nextId,
-        firstName: sku, // Corrected here
-        lastName: customer, // Corrected here
+        firstName: sku,
+        lastName: customer,
         description,
         qty,
         value,
@@ -61,7 +61,6 @@ function Logistic() {
       setNextId(nextId + 1);
     }
   };
-  
 
   const handleDeleteSelected = () => {
     const selectedIds = rows.map((row) => row.id);
@@ -79,7 +78,7 @@ function Logistic() {
   return (
     <div>
       <h2 className='logistictitle' style={{ textAlign: 'center' }}>
-        <Public fontSize="inherit" /> {/* Use the "public" icon */}
+        <Public fontSize="inherit" />
         Import & Export
       </h2>
 
@@ -94,8 +93,6 @@ function Logistic() {
             justifyContent: 'space-evenly',
             alignItems: 'center',
             alignContent: 'center',
-            
-            
           },
         }}
         noValidate
@@ -115,10 +112,6 @@ function Logistic() {
         ))}
       </Box>
 
-      <br />
-      <br />
-      <br />
-
       <Stack spacing={2} direction="row">
         <Button variant="contained" onClick={handleAddToTable}>
           Add to Table
@@ -132,10 +125,6 @@ function Logistic() {
           Export
         </Button>
       </Stack>
-
-      <br />
-      <br />
-      <br />
 
       <Box sx={{ height: 400, width: '100%', backgroundColor: 'rgba(224, 217, 206, 0.5)' }}>
         <DataGrid rows={rows} columns={columns} pageSize={5} checkboxSelection disableRowSelectionOnClick />
