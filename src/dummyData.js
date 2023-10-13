@@ -9,6 +9,7 @@ export const orders = [
         qty: 10,
         value: 100,
         status: 'Order Placed',
+        status: getRandomStatus(),
       },
       {
         id: '2',
@@ -18,6 +19,7 @@ export const orders = [
         qty: 20,
         value: 200,
         status: 'No Issue',
+        status: getRandomStatus(),
       },
       {
         id: '3',
@@ -27,6 +29,7 @@ export const orders = [
         qty: 15,
         value: 150,
         status: 'Order Shipped',
+        status: getRandomStatus(),
       },
       {
         id: '4',
@@ -36,6 +39,7 @@ export const orders = [
         qty: 8,
         value: 80,
         status: 'Order Placed',
+        status: getRandomStatus(),
       },
       {
         id: '5',
@@ -45,6 +49,7 @@ export const orders = [
         qty: 25,
         value: 250,
         status: 'No Issue',
+        status: getRandomStatus(),
       },
       {
         id: '6',
@@ -54,6 +59,7 @@ export const orders = [
         qty: 12,
         value: 120,
         status: 'Order Shipped',
+        status: getRandomStatus(),
       },
       {
         id: '7',
@@ -63,6 +69,7 @@ export const orders = [
         qty: 18,
         value: 180,
         status: 'Order Placed',
+        status: getRandomStatus(),
       },
       {
         id: '8',
@@ -72,6 +79,7 @@ export const orders = [
         qty: 30,
         value: 300,
         status: 'No Issue',
+        status: getRandomStatus(),
       },
       {
         id: '9',
@@ -81,6 +89,7 @@ export const orders = [
         qty: 5,
         value: 50,
         status: 'No Issue',
+        status: getRandomStatus(),
       },
       {
         id: '10',
@@ -90,6 +99,7 @@ export const orders = [
         qty: 22,
         value: 220,
         status: 'Order Shipped',
+        status: getRandomStatus(),
       },
       {
         id: '11',
@@ -99,6 +109,7 @@ export const orders = [
         qty: 7,
         value: 70,
         status: 'Order Placed',
+        status: getRandomStatus(),
       },
       {
         id: '12',
@@ -108,6 +119,7 @@ export const orders = [
         qty: 14,
         value: 140,
         status: 'No Issue',
+        status: getRandomStatus(),
       },
       {
         id: '13',
@@ -117,6 +129,7 @@ export const orders = [
         qty: 19,
         value: 190,
         status: 'No Issue',
+        status: getRandomStatus(),
       },
       {
         id: '14',
@@ -125,7 +138,8 @@ export const orders = [
         description: 'Product N',
         qty: 9,
         value: 90,
-        status: 'Order Shipped',
+       
+        status: getRandomStatus(),
       },
       {
         id: '15',
@@ -134,7 +148,8 @@ export const orders = [
         description: 'Product O',
         qty: 16,
         value: 160,
-        status: 'Order Placed',
+       
+        status: getRandomStatus(),
       },
       {
         id: '16',
@@ -143,7 +158,9 @@ export const orders = [
         description: 'Product P',
         qty: 21,
         value: 210,
-        status: 'No Issue',
+        status: getRandomStatus(),
+        
+       
       },
       {
         id: '17',
@@ -152,7 +169,8 @@ export const orders = [
         description: 'Product Q',
         qty: 11,
         value: 110,
-        status: 'Order Shipped',
+       
+        status: getRandomStatus(),
       },
       {
         id: '18',
@@ -161,7 +179,8 @@ export const orders = [
         description: 'Product R',
         qty: 6,
         value: 60,
-        status: 'Order Placed',
+        
+        status: getRandomStatus(),
       },
       {
         id: '19',
@@ -170,7 +189,8 @@ export const orders = [
         description: 'Product S',
         qty: 13,
         value: 130,
-        status: 'No Issue',
+        
+        status: getRandomStatus(),
       },
       {
         id: '20',
@@ -179,8 +199,21 @@ export const orders = [
         description: 'Product T',
         qty: 17,
         value: 170,
-        status: 'No Issue',
+        
+        status: getRandomStatus(),
       },
     // Add more dummy data here
   ];
+
+  // Function to get a random status
+function getRandomStatus() {
+  const statuses = [
+    'Order Shipped',
+    'Order Approved',
+    'Order Declined',
+    'Order last call for changes',
+  ];
+  const randomIndex = Math.floor(Math.random() * statuses.length);
+  return statuses[randomIndex];
+}
   

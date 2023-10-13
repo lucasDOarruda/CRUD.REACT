@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { DataGrid } from '@mui/x-data-grid';
@@ -6,8 +6,20 @@ import { orders } from '../dummyData'; // Import the dummy data
 import Button from '@mui/material/Button';
 import CustomBackdrop from '../Components/CustomBackdrop'; // Import the CustomBackdrop component
 import Card from '@mui/material/Card'; // Import Card component
-import CardContent from '@mui/material/CardContent'; // Import CardContent component
+import CardContent from '@mui/material/CardContent';
 import '../Styles/Home.css';
+
+// Function to get a random status
+function getRandomStatus() {
+  const statuses = [
+    'Order Shipped',
+    'Order Approved',
+    'Order Declined',
+    'Order last call for changes',
+  ];
+  const randomIndex = Math.floor(Math.random() * statuses.length);
+  return statuses[randomIndex];
+}
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 90 },
@@ -16,6 +28,8 @@ const columns = [
   { field: 'description', headerName: 'Description', width: 200 },
   { field: 'qty', headerName: 'Qty', type: 'number', width: 90 },
   { field: 'value', headerName: 'Value', type: 'number', width: 110 },
+  { field: 'status', headerName: 'Status', width: 160, valueGetter: () => getRandomStatus() },
+  // Add the 'status' column with a valueGetter to get random statuses
 ];
 
 const Home = () => {
@@ -23,6 +37,24 @@ const Home = () => {
   const [filteredRows, setFilteredRows] = useState([]);
   const [tableVisible, setTableVisible] = useState(false);
   const [backdropOpen, setBackdropOpen] = useState(false);
+  const [randomizedOrders, setRandomizedOrders] = useState([]);
+
+  // Calculate the counts of each status
+  const statusCounts = {};
+  orders.forEach((order) => {
+    const status = order.status;
+    statusCounts[status] = (statusCounts[status] || 0) + 1;
+  });
+
+  useEffect(() => {
+    // Shuffle the order of rows to randomize them
+    const shuffledOrders = [...orders];
+    for (let i = shuffledOrders.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledOrders[i], shuffledOrders[j]] = [shuffledOrders[j], shuffledOrders[i]];
+    }
+    setRandomizedOrders(shuffledOrders);
+  }, []);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -30,7 +62,7 @@ const Home = () => {
 
     const searchTerm = searchField.toLowerCase();
 
-    const filtered = orders.filter(
+    const filtered = randomizedOrders.filter(
       (order) =>
         order.clientName.toLowerCase().includes(searchTerm) ||
         order.sku.toLowerCase().includes(searchTerm)
@@ -48,20 +80,18 @@ const Home = () => {
       <CustomBackdrop open={backdropOpen} handleClose={() => setBackdropOpen(false)} />
 
       <div className="SUMMARY">
-        {/* Status cards */}
-        <Card className="Order-Card">
-          <CardContent>Orders Shipped</CardContent>
-        </Card>
-        <Card className="Order-Card">
-          <CardContent>Orders Approved</CardContent>
-        </Card>
-        <Card className="Order-Card">
-          <CardContent>Orders Declined</CardContent>
-        </Card>
-        <Card className="Order-Card">
-          <CardContent>Orders last call to be changed</CardContent>
-        </Card>
-
+        {/* Display Card components with status counts */}
+        {Object.keys(statusCounts).map((status, index) => (
+          <Card className="Order-Card" key={status}>
+            <CardContent>
+              {`${status}: ${statusCounts[status]}`}
+              <div>
+                <span>Total: $</span>
+                {statusCounts[status] * 10} {/* Assuming each order is worth $10 */}
+              </div>
+            </CardContent>
+          </Card>
+        ))}
         <h2>Search ID 1 - 20 | Client Name A - T</h2>
       </div>
 
