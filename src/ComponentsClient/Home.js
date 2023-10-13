@@ -5,9 +5,9 @@ import { DataGrid } from '@mui/x-data-grid';
 import { orders } from '../dummyData'; // Import the dummy data
 import Button from '@mui/material/Button';
 import CustomBackdrop from '../Components/CustomBackdrop'; // Import the CustomBackdrop component
+import Card from '@mui/material/Card'; // Import Card component
+import CardContent from '@mui/material/CardContent'; // Import CardContent component
 import '../Styles/Home.css';
-
-
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 90 },
@@ -18,7 +18,7 @@ const columns = [
   { field: 'value', headerName: 'Value', type: 'number', width: 110 },
 ];
 
-function Home() {
+const Home = () => {
   const [searchField, setSearchField] = useState('');
   const [filteredRows, setFilteredRows] = useState([]);
   const [tableVisible, setTableVisible] = useState(false);
@@ -26,8 +26,6 @@ function Home() {
 
   const handleSearch = (e) => {
     e.preventDefault();
-
-    // Show the backdrop when the search is in progress
     setBackdropOpen(true);
 
     const searchTerm = searchField.toLowerCase();
@@ -38,22 +36,32 @@ function Home() {
         order.sku.toLowerCase().includes(searchTerm)
     );
 
-    // Simulate an asynchronous operation (e.g., API call) with a delay
     setTimeout(() => {
       setFilteredRows(filtered);
       setTableVisible(filtered.length > 0);
-
-      // Hide the backdrop when loading is done
       setBackdropOpen(false);
-    }, 1000); // Adjust the delay as needed
+    }, 1000);
   };
 
   return (
     <div className="home-container">
-      {/* Add the CustomBackdrop component */}
       <CustomBackdrop open={backdropOpen} handleClose={() => setBackdropOpen(false)} />
 
       <div className="SUMMARY">
+        {/* Status cards */}
+        <Card className="Order-Card">
+          <CardContent>Orders Shipped</CardContent>
+        </Card>
+        <Card className="Order-Card">
+          <CardContent>Orders Approved</CardContent>
+        </Card>
+        <Card className="Order-Card">
+          <CardContent>Orders Declined</CardContent>
+        </Card>
+        <Card className="Order-Card">
+          <CardContent>Orders last call to be changed</CardContent>
+        </Card>
+
         <h2>Search ID 1 - 20 | Client Name A - T</h2>
       </div>
 
@@ -76,7 +84,6 @@ function Home() {
               value={searchField}
               onChange={(e) => setSearchField(e.target.value)}
             />
-
             <Button type="submit" sx={{ paddingTop: '3%' }}>
               Search
             </Button>
@@ -99,6 +106,6 @@ function Home() {
       )}
     </div>
   );
-}
+};
 
 export default Home;
