@@ -1,17 +1,9 @@
-// Inventory.js
 import React, { useEffect, useState } from 'react';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
+import { TextField, Button, Box } from '@mui/material';
 import * as XLSX from 'xlsx';
-import Box from '@mui/material/Box';
-import '../Styles/Inventory.css';
-
-
-
-
 import axios from 'axios';
-
+import '../Styles/Inventory.css';
 
 const initialState = {
   productName: '',
@@ -45,7 +37,6 @@ function Inventory() {
   const [selectedFile, setSelectedFile] = useState(null);
 
   useEffect(() => {
-    // Fetch inventory data from the server when the component mounts
     axios.get('/api/inventory')
       .then((response) => {
         setRows(response.data);
@@ -54,8 +45,6 @@ function Inventory() {
         console.error('Error fetching inventory data:', error);
       });
   }, []);
-
-
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -127,19 +116,19 @@ function Inventory() {
       </h2>
 
       <form className='form-container'>
-        {Object.entries(formData).map(([fieldName, fieldValue]) => (
-          <TextField
-            key={fieldName}
-            id={fieldName}
-            name={fieldName}
-            label={fieldName.charAt(0).toUpperCase() + fieldName.slice(1)}
-            variant="standard"
-            type={fieldName === 'quantity' || fieldName === 'price' || fieldName === 'ctnWeight' || fieldName === 'ctnHeight' || fieldName === 'ctnWidth' ? 'number' : 'text'}
-            value={fieldValue}
-            onChange={handleInputChange}
-            className='form-field'
-          />
-        ))}
+      {Object.entries(formData).map(([fieldName, fieldValue]) => (
+  <TextField
+    key={fieldName}
+    id={fieldName}
+    name={fieldName}
+    label={fieldName.charAt(0).toUpperCase() + fieldName.slice(1)}
+    variant="standard"
+    type={fieldName === 'quantity' || fieldName === 'price' || fieldName === 'ctnWeight' || fieldName === 'ctnHeight' || fieldName === 'ctnWidth' ? 'number' : 'text'}
+    value={fieldValue}
+    onChange={handleInputChange}
+    className='form-field'
+  />
+))}
 
         <div className='button-container'>
           <Button variant="contained" onClick={handleAddToTable}>
@@ -160,8 +149,7 @@ function Inventory() {
 
           <input type="file" accept=".xlsx" onChange={handleFileChange} style={{ display: 'none' }} id="excelFileInput" />
           <label htmlFor="excelFileInput">
-
-          <Button variant="contained" component="span">
+            <Button variant="contained" component="span">
               Upload Excel File
             </Button>
           </label>
@@ -176,4 +164,3 @@ function Inventory() {
 }
 
 export default Inventory;
-

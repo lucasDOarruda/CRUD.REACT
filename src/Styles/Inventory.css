@@ -74,8 +74,9 @@
     }
   
     .button-container button {
-      width: 100%; /* Make buttons take full width */
-      margin: 5px 0; /* Add spacing between buttons */
+      width: 150px; /* Set the desired width */
+      height: 40px; /* Set the desired height */
+      font-size: 16px; /* Set the font size */
     }
   }
   
